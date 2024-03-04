@@ -3,7 +3,7 @@ import Asside from "../components/Asside";
 
 const History: React.FC = () => {
   return (
-    <div className=" flex items-center">
+    <div className=" fle">
       <Asside />
       <p>История</p>
     </div>

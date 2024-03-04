@@ -3,7 +3,7 @@ import Asside from "../components/Asside";
 
 const Chemistry: React.FC = () => {
   return (
-    <div className=" flex items-center">
+    <div className=" flex">
       <Asside />
       <p>Химия</p>
     </div>

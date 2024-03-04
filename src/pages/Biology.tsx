@@ -3,7 +3,7 @@ import Asside from "../components/Asside";
 
 const Biology: React.FC = () => {
   return (
-    <div className=" flex items-center">
+    <div className=" flex ">
       <Asside />
       <p>Биология</p>
     </div>
