@@ -78,16 +78,16 @@ const Asside: React.FC = () => {
     },
   ];
   return (
-    <div className=" flex items-center">
+    <div className=" flex ">
       <div
-        className={` bg-blue-400 xl:w-80  h-screen ${
-          !openValue ? ` w-64` : ``
+        className={` bg-blue-400 xl:w-80 ${
+          !openValue ? ` w-64 h-screen` : ``
         } `}
       >
         {items.map((item, i) => (
           <Link to={item.pathName}>
             <div
-              className=" flex items-center text-white text-2xl  cursor-pointer p-3 hover:bg-blue-500"
+              className=" flex items-center text-white text-2xl cursor-pointer p-3 hover:bg-blue-500"
               key={i}
             >
               <div
