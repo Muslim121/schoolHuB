@@ -13,6 +13,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { RootState } from "../redux/store";
 import { setOpen } from "../redux/Slices/OpenAssideSlice";
+import { Link } from "react-router-dom";
 
 const Asside: React.FC = () => {
   const openValue = useAppSelector((state: RootState) => state.open.openValue);
@@ -21,48 +22,59 @@ const Asside: React.FC = () => {
   type ItemsObj = {
     itemName: string;
     itemIcon: ReactElement;
+    pathName: string;
   };
 
   const items: ItemsObj[] = [
     {
       itemName: "История",
       itemIcon: <LuSwords />,
+      pathName: "/main/history",
     },
     {
       itemName: "Физика",
       itemIcon: <FaReact />,
+      pathName: "/main/physics",
     },
     {
       itemName: "Геометрия",
       itemIcon: <IoTriangle />,
+      pathName: "/main/geometry",
     },
     {
       itemName: "Музыка",
       itemIcon: <IoMdMusicalNote />,
+      pathName: "/main/music",
     },
     {
       itemName: "Литература",
       itemIcon: <FaBookOpen />,
+      pathName: "/main/literature",
     },
     {
       itemName: "Алгебра",
       itemIcon: <TbMath />,
+      pathName: "/main/algebra",
     },
     {
       itemName: "География",
       itemIcon: <FaGlobeAmericas />,
+      pathName: "/main/geograthy",
     },
     {
       itemName: "Биология",
       itemIcon: <FaLeaf />,
+      pathName: "/main/biology",
     },
     {
       itemName: "Химия",
       itemIcon: <SlChemistry />,
+      pathName: "/main/chemistry",
     },
     {
       itemName: "Английский",
       itemIcon: <RiEnglishInput />,
+      pathName: "/main/english",
     },
   ];
   return (
@@ -73,16 +85,20 @@ const Asside: React.FC = () => {
         } `}
       >
         {items.map((item, i) => (
-          <div
-            className=" flex items-center text-white text-2xl  cursor-pointer p-3 hover:bg-blue-500"
-            key={i}
-          >
-            <div className={`xl:mr-4 text-3xl ${openValue ? `mr-0` : `mr-4`} `}>
-              {item.itemIcon}
+          <Link to={item.pathName}>
+            <div
+              className=" flex items-center text-white text-2xl  cursor-pointer p-3 hover:bg-blue-500"
+              key={i}
+            >
+              <div
+                className={`xl:mr-4 text-3xl ${openValue ? `mr-0` : `mr-4`} `}
+              >
+                {item.itemIcon}
+              </div>
+              {!openValue && <p className=" text-white">{item.itemName}</p>}
+              <p className=" text-white xl:block hidden">{item.itemName}</p>
             </div>
-            {!openValue && <p className=" text-white">{item.itemName}</p>}
-            <p className=" text-white xl:block hidden">{item.itemName}</p>
-          </div>
+          </Link>
         ))}
         {!openValue && (
           <div

@@ -1,7 +1,13 @@
 import React from "react";
+import Asside from "../components/Asside";
 
 const Physics: React.FC = () => {
-  return <div className=" text-center">Физика</div>;
+  return (
+    <div className=" flex items-center">
+      <Asside />
+      <p>Физика</p>
+    </div>
+  );
 };
 
 export default Physics;
