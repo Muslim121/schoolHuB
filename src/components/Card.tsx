@@ -20,7 +20,7 @@ const Card: React.FC = () => {
       .then((res) => setDates(res.data));
   }, []);
   return (
-    <div className=" flex flex-wrap p-4">
+    <div className=" flex flex-wrap p-4 m-6">
       {dates.map((date) => (
         <div
           key={date.id}

@@ -80,8 +80,8 @@ const Asside: React.FC = () => {
   return (
     <div className=" flex ">
       <div
-        className={` bg-blue-400 xl:w-80 ${
-          !openValue ? ` w-64 h-screen` : ``
+        className={` bg-blue-400 xl:w-80 h-screen rounded-br-xl ${
+          !openValue ? ` w-64` : ``
         } `}
       >
         {items.map((item, i) => (
