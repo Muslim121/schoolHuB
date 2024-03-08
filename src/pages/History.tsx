@@ -14,11 +14,18 @@ const History: React.FC = () => {
       <Asside />
       {openValue && (
         <div className=" w-full">
-          <p className=" text-center text-4xl font-bold text-indigo-500 mt-3 ">
-            История
-          </p>
-          <div className=" flex items-center">
+          <div className=" xl:flex xl:items-center xl:justify-between xl:mx-6">
+            <p className=" xl:text-left xl:ml-6 text-center text-4xl font-bold text-indigo-500 mt-3 ">
+              История
+            </p>
+            <div className=" xl:block hidden mr-16">
+              <Sort />
+            </div>
+          </div>
+          <div>
             <Category />
+          </div>
+          <div className=" xl:hidden flex justify-center">
             <Sort />
           </div>
           <Card />

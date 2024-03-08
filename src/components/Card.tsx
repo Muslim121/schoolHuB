@@ -15,6 +15,8 @@ type Dates = {
 const Card: React.FC = () => {
   const [dates, setDates] = React.useState<Dates[]>([]);
   const indexValue = useAppSelector((state) => state.filter.indexValue);
+  const sorting = useAppSelector((state) => state.filter.sortRedux);
+  const sortType = sorting.sortProperty;
   // React.useEffect(() => {
   //   setIsLoading(true);
 
@@ -33,11 +35,14 @@ const Card: React.FC = () => {
 
   React.useEffect(() => {
     const category = indexValue > 0 ? `category=${indexValue}` : "";
-
+    const sortBy = sortType.replace("-", "");
+    const order = sortType.includes("-") ? `asc` : `desc`;
     axios
-      .get(`https://65e5c6aad7f0758a76e755c3.mockapi.io/dates?${category}`)
+      .get(
+        `https://65e5c6aad7f0758a76e755c3.mockapi.io/dates?${category}&sortBy=${sortBy}&order=${order}`
+      )
       .then((res) => setDates(res.data));
-  }, [indexValue]);
+  }, [indexValue, sorting]);
   return (
     <div className=" flex flex-wrap p-4 m-6">
       {dates.map((date) => (
