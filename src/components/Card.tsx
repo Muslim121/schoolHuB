@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { LuSwords } from "react-icons/lu";
+import { useAppSelector } from "../redux/hooks";
 
 type Dates = {
   id: number;
@@ -13,12 +14,30 @@ type Dates = {
 
 const Card: React.FC = () => {
   const [dates, setDates] = React.useState<Dates[]>([]);
+  const indexValue = useAppSelector((state) => state.filter.indexValue);
+  // React.useEffect(() => {
+  //   setIsLoading(true);
+
+  //   const sortBy = sortType.replace("-", "");
+  //   const order = sortType.includes("-") ? `asc` : `desc`;
+  //   const categorie = categoryId > 0 ? `category=${categoryId}` : "";
+
+  //   axios
+  //     .get(
+  //       `https://65cc6b19dd519126b83e6b54.mockapi.io/items?&page=1&${categorie}&sortBy=${sortBy}&order=${order}`
+  //     )
+  //     .then((res) => {
+  //       setItems(res.data);
+  //       setIsLoading(false);
+  //     });
 
   React.useEffect(() => {
+    const category = indexValue > 0 ? `category=${indexValue}` : "";
+
     axios
-      .get("https://65e5c6aad7f0758a76e755c3.mockapi.io/dates")
+      .get(`https://65e5c6aad7f0758a76e755c3.mockapi.io/dates?${category}`)
       .then((res) => setDates(res.data));
-  }, []);
+  }, [indexValue]);
   return (
     <div className=" flex flex-wrap p-4 m-6">
       {dates.map((date) => (

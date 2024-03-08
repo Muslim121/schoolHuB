@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import openReducer from "./Slices/OpenAssideSlice";
+import filterReducer from "./Slices/FilterSlice";
 
 export const store = configureStore({
   reducer: {
     open: openReducer,
+    filter: filterReducer,
   },
 });
 
