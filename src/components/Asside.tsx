@@ -95,7 +95,9 @@ const Asside: React.FC = () => {
               >
                 {item.itemIcon}
               </div>
-              {!openValue && <p className=" text-white">{item.itemName}</p>}
+              {!openValue && (
+                <p className=" text-white xl:hidden">{item.itemName}</p>
+              )}
               <p className=" text-white xl:block hidden">{item.itemName}</p>
             </div>
           </Link>

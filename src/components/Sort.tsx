@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { setSort } from "../redux/Slices/FilterSlice";
 type SortObj = {
@@ -19,12 +19,20 @@ const Sort: React.FC = () => {
   const sortingRedux = useAppSelector((state) => state.filter.sortRedux);
   const [openSort, setOpenSort] = useState<boolean>(false);
   const dispatch = useAppDispatch();
+  const SortLi = useRef<HTMLDivElement>(null);
 
   const OnSelectedSort = (obj: SortObj) => {
     setOpenSort(false);
     dispatch(setSort(obj));
   };
-
+  const handleclick = (event: MouseEvent) => {
+    if (SortLi.current && !SortLi.current.contains(event.target as Node)) {
+      setOpenSort(false);
+    }
+  };
+  React.useEffect(() => {
+    document.addEventListener("mousedown", handleclick);
+  }, []);
   return (
     <div className=" flex items-center">
       <p>Сортировка по: </p>
@@ -34,17 +42,15 @@ const Sort: React.FC = () => {
       >
         {sortingRedux.name}
       </span>
-      <div className=" relative">
+      <div ref={SortLi} className=" relative">
         {openSort && (
-          <div className=" absolute cursor-pointer right-1 top-7 bg-white rounded-lg shadow-xl">
+          <div className=" absolute cursor-pointer right-1 top-7 bg-white border-[3px] border-indigo-500 rounded-2xl shadow-xl">
             {SortItems.map((obj, i) => (
               <li
                 key={i}
                 onClick={() => OnSelectedSort(obj)}
-                className={`border-indigo-500 p-2 rounded-lg border-[3px] w-44 hover:text-white hover:bg-indigo-500 ${
-                  sortingRedux.name === obj.name
-                    ? `bg-indigo-500 text-white`
-                    : `bg-white`
+                className={`p-2 w-44 hover:bg-slate-200 rounded-xl ${
+                  sortingRedux.name === obj.name ? `bg-slate-200` : `bg-white`
                 }`}
               >
                 {obj.name}
