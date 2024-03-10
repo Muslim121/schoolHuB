@@ -4,6 +4,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 interface OpenState {
   indexValue: number;
   sortRedux: { name: string; sortProperty: string };
+  searchValue: string;
 }
 type Sort = {
   name: string;
@@ -13,6 +14,7 @@ type Sort = {
 const initialState: OpenState = {
   indexValue: 0,
   sortRedux: { name: "популярности DESC", sortProperty: "rating" },
+  searchValue: "",
 };
 
 export const filterSlice = createSlice({
@@ -25,9 +27,12 @@ export const filterSlice = createSlice({
     setSort(state, action: PayloadAction<Sort>) {
       state.sortRedux = action.payload;
     },
+    setSearchValue(state, action: PayloadAction<string>) {
+      state.searchValue = action.payload;
+    },
   },
 });
 
-export const { setIndexValue, setSort } = filterSlice.actions;
+export const { setIndexValue, setSort, setSearchValue } = filterSlice.actions;
 
 export default filterSlice.reducer;

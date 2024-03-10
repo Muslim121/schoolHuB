@@ -5,6 +5,7 @@ import Sort from "../components/Sort";
 import Card from "../components/Card";
 import { useAppSelector } from "../redux/hooks";
 import { RootState } from "../redux/store";
+import Search from "../components/Search";
 
 const History: React.FC = () => {
   const openValue = useAppSelector((state: RootState) => state.open.openValue);
@@ -18,6 +19,9 @@ const History: React.FC = () => {
             <p className=" xl:text-left xl:ml-6 text-center text-4xl font-bold text-indigo-500 mt-3 ">
               История
             </p>
+            <div className=" mt-3 ml-10">
+              <Search />
+            </div>
             <div className=" xl:block hidden mr-16">
               <Sort />
             </div>
