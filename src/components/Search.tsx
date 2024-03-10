@@ -39,7 +39,7 @@ const Search = () => {
       {searchValue && (
         <MdClear
           onClick={onClickClear}
-          className=" text-indigo-500 right-3 text-lg absolute"
+          className=" text-indigo-500 xl:right-3 right-12 text-lg absolute"
         />
       )}
     </div>
