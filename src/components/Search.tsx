@@ -37,7 +37,10 @@ const Search = () => {
         className=" xl:w-96 w-64 border-indigo-500 rounded-xl h-10 border-[2px] pl-9"
       />
       {searchValue && (
-        <MdClear onClick={onClickClear} className=" text-indigo-500 " />
+        <MdClear
+          onClick={onClickClear}
+          className=" text-indigo-500 right-3 text-lg absolute"
+        />
       )}
     </div>
   );
