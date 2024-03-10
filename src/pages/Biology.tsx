@@ -1,11 +1,14 @@
 import React from "react";
 import Asside from "../components/Asside";
+import Notfound from "../components/Notfound";
 
 const Biology: React.FC = () => {
   return (
     <div className=" flex ">
       <Asside />
-      <p>Биология</p>
+      <div className=" mx-auto mt-2">
+        <Notfound />
+      </div>
     </div>
   );
 };
