@@ -26,9 +26,11 @@ const Header: React.FC = () => {
                 <FaHome className=" text-3xl " />
               </div>
             </Link>
-            <div className="hover:cursor-pointer ">
-              <RiDraftFill className=" text-3xl " />
-            </div>
+            <Link to="/cart">
+              <div className="hover:cursor-pointer ">
+                <RiDraftFill className=" text-3xl " />
+              </div>
+            </Link>
           </div>
         )}
         <Link
@@ -48,7 +50,7 @@ const Header: React.FC = () => {
           <h1 className=" text-2xl ">Главная</h1>
         </Link>
         <Link
-          to="/"
+          to="/cart"
           className="xl:flex items-center hover:cursor-pointer hidden"
         >
           <RiDraftFill className=" text-2xl mr-1" />

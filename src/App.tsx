@@ -13,6 +13,7 @@ import Litarature from "./pages/Litarature";
 import Music from "./pages/Music";
 import Physics from "./pages/Physics";
 import Geometry from "./pages/Geometry";
+import Cart from "./pages/Cart";
 
 const App: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const App: React.FC = () => {
         <Route path="/main/music" element={<Music />}></Route>
         <Route path="/main/physics" element={<Physics />}></Route>
         <Route path="/main/geometry" element={<Geometry />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
         <Route path="*" element={<Home />}></Route>
       </Routes>
     </div>
