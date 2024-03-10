@@ -42,7 +42,7 @@ const Sort: React.FC = () => {
       >
         {sortingRedux.name}
       </span>
-      <div ref={SortLi} className=" relative">
+      <div ref={SortLi} className=" relative z-10">
         {openSort && (
           <div className=" absolute cursor-pointer right-1 top-7 bg-white border-[3px] border-indigo-500 rounded-2xl shadow-xl">
             {SortItems.map((obj, i) => (
